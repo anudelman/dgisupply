@@ -1,69 +1,131 @@
 
 
  body {
-    background:fafafa;
+  background:fafafa;
+  padding:0;
+  margin:0; 
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  
+
+ }
+ 
+ a{
+  text-decoration: none;
+
+ }
+
+ /* navigation styles */
+
+  nav{
+    opacity:0;
+    transition: 2s opacity 2s ease;
+  }
+  
+  nav{
+    display:flex;
+    justify-content:space-between;
+    background:#212121;
+    padding:24px;
+    color:white;
+    opacity:1;
+    
+  }
+  
+  nav ul{
+    display:flex;
+    list-style-type:none;
+    justify-content:space-between;
+    width:300px;
     padding:0;
-    margin:0; 
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
     
-  
-   }  
-  
-   /* navigation styles */
-  
-    nav{
-      opacity:0;
-      transition: 2s opacity 2s ease;
-    }
-    
-    nav{
-      display:flex;
-      justify-content:space-between;
-      background:#212121;
-      padding:24px;
+
+  }
+  nav a {
       color:white;
-      opacity:1;
-      
-    }
-    
-    nav ul{
-      display:flex;
-      list-style-type:none;
-      justify-content:space-between;
-      width:300px;
-      padding:0;
-      margin:0;
-      
-  
-    }
-    nav a {
-        color:white;
-    }
-  
-  /* tabs styling */
-  .tabs{
-      display:flex;
-      justify-content:stretch;
   }
-  .tab{
-      width:100%;
-      display: flex;
-      flex-direction: column;
-  }
-  
-  .tab a{
-      background:#ccc;
-      padding:16px;
-      margin:0;
-  }
-  
-  .tab.cat.selected a, .tab.mfg.selected a{
-      background: #aaa;
-  }
-  ul.contents{
-      list-style-type: none;
-      padding:0;
-      margin:16px; 
-  }
-  /* category and manufacturer lists */
+
+/* tabs styling */
+.tabs{
+    display:flex;
+    justify-content:stretch;
+}
+.tab{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab a{
+    /* background:#ccc; */
+    padding:16px;
+    margin:0;
+    color:rgba(0,0,0,.87);
+    text-transform: uppercase;
+    border-bottom: 3px solid #00000005;
+    text-align:center;
+}
+
+.tab.cat.selected a, .tab.mfg.selected a{
+    background: #fff;
+    /* border-bottom: 3px solid black; */
+    /* transition: 1s border-bottom ease; */
+}
+
+/* animate divider on tab selected */
+.divider{
+  width:calc(100vw / 2);
+  height:3px;
+  background:black;
+  position: relative;
+  top: -3px;
+  left: 0px;
+}
+
+.divider.left{
+  transform:translate3d(0,0,0);
+  transition: .3s all ease;
+}
+
+.divider.right{
+  /* transform: translate3d(calc(100vw / 2),0,0) scale3d(.5,1,1); */
+  transform: translate3d(calc(100vw / 2),0,0);
+  transition: .3s all ease;
+}
+
+/* category and manufacturer lists */
+
+
+
+ul.contents{
+    list-style-type: none;
+    padding: 0px;
+    margin:0px;
+    opacity: 1;
+    transition: 1s opacity 200ms ease;
+    position: absolute;
+}
+
+ul.contents li a{
+  display:block;
+  padding:16px;
+}
+
+
+
+ul.mfg.hide{
+  opacity: 0;
+  transition: 0s opacity linear;
+}
+
+ul.cat.hide{
+  opacity: 0;
+  transition: 0s opacity linear;
+}
+
+
+
+ul.contents li a:hover{
+    background:rgba(0,0,0,.01);
+}
